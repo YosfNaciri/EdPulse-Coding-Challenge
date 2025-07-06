@@ -19,8 +19,8 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <nav className="bg-white text-gray-800">
-      <div className="max-w-[1200px] mx-auto p-4 flex items-center justify-between">
+    <nav className="bg-white text-gray-800 sticky top-0">
+      <div className="max-w-[1450px] mx-auto p-4 flex items-center justify-between">
         <a href="#" className="w-20 md:w-40 z-20">
           <img src={logo} alt="edpuls-logo" />
         </a>
@@ -47,7 +47,7 @@ const Header = () => {
         ) : (
           <div className="bg-white overflow-y-hidden fixed z-10 top-0 left-[-150%] w-screen min-h-screen flex justify-center items-center flex-col gap-10 duration-300 ease-in"></div>
         )}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 ">
           <a href="#">Home</a>
           <a href="#">Misson</a>
           <a href="#">Services</a>
