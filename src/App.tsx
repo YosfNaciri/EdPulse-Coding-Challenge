@@ -7,30 +7,29 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Services from "./components/Services";
 
-
 function App() {
   return (
-    <>
+    <main>
       {/* Header */}
       <Header />
       {/* Hero */}
-      <Hero/>
+      <Hero />
 
       {/* About */}
-      <Mission/>
-      
+      <Mission />
+
       {/* About */}
-      <Services/>
+      <Services />
 
       {/* Tetemonials */}
-      <Reviews/>
+      <Reviews />
 
       {/* Contact */}
-      <Contact/>
+      <Contact />
 
       {/* Footer */}
-      <Footer/>
-    </>
+      <Footer />
+    </main>
   );
 }
 
