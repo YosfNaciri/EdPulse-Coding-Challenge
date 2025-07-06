@@ -9,12 +9,12 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 pt-5 md:pt-30">
           <div className=" space-y-6 flex flex-col justify-center items-center md:items-start">
             <h1 className="text-4xl xl:text-7xl font-bold text-center md:text-start w-96 md:w-auto">
-              Enhamce Your{" "}
+              Enhance Your{" "}
               <span className="text-blue-500 underline">Skills</span> To Propel
               Your <span className="text-blue-500 underline">Career</span>{" "}
               Forward
             </h1>
-            <p className="w-96 xl:text-xl text-center md:w-auto md:text-start">
+            <p className="text-gray-600 w-96 xl:text-xl text-center md:w-auto md:text-start">
               Boost your skills with practical lessons, real-life conversations,
               and expert guidance. Join a learning path that’s fast, flexible,
               and built to help you communicate naturally.
