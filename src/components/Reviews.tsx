@@ -38,7 +38,7 @@ const tempRevData = [
 
 const Reviews = () => {
   return (
-    <div className="flex justify-center items-center flex-col gap-15  md:py-3 min-h-screen">
+    <div className="flex justify-center items-center flex-col gap-15  md:py-3 min-h-screen" id="Reviews">
       <h3 className="text-2xl text-blue-600 font-bold">Our Testemonials</h3>
       <h1 className="text-4xl font-bold text-center md:text-start w-96 md:w-auto">
         What Our Students Say About Us

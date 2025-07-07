@@ -8,7 +8,7 @@ import HeroImg from "../assets/Hero-Girl.png";
 
 const Hero = () => {
   return (
-    <div className="flex justify-start items-center flex-col min-h-screen">
+    <div className="flex justify-start items-center flex-col min-h-screen" id="Home">
       <div className="max-w-[1450px]">
         <div className="grid grid-cols-1 md:grid-cols-2 pt-5 md:pt-30">
           <div className=" space-y-6 flex flex-col justify-center items-center md:items-start">

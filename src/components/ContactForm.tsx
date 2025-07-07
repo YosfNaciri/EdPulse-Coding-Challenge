@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2" 
+import Swal, { type SweetAlertOptions } from "sweetalert2" 
+
+import { COMPLETE_URL,INCOMPLETE_URL  } from "../Utils/Api";
 
 interface FormData {
   firstName: string;
@@ -26,9 +28,9 @@ const handleChange = (
   };
 
 
- const isComplete = (item) => {
-      const firstname = item.firstname || '';
-      const lastname = item.lastname || '';
+ const isComplete = (item:FormData) => {
+      const firstname = item.firstName || '';
+      const lastname = item.lastName || '';
       const email = item.email || '';
       const message = item.message || '';
       const phone = item.phone || '';
@@ -42,25 +44,25 @@ const handleSubmit = async (e: React.FormEvent) => {
 
 
   const data = {
-    firstname: form.firstName,
-    lastname: form.lastName,
+    firstName: form.firstName,
+    lastName: form.lastName,
     email: form.email,
     phone: form.phone,
     message: form.message,
-    date: new Date().addDays(1).toLocaleDateString(),
+    date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString(),
   };
 
 const isFormComplete = isComplete(data)
 
-let url = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzZTA0MzM1MjY5NTUzNzUxMzUi_pc"
-let swallMsg = {
+let url = COMPLETE_URL
+let swallMsg: SweetAlertOptions = {
         title:"Welcom aboard",
         text:"Your message has ben sent",
         icon:"success"
       }
 if (!isFormComplete) {
-     url = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzZTA0MzM1MjY5NTUzMDUxMzUi_pc" 
+     url = INCOMPLETE_URL 
      swallMsg = {
         title:"Success",
         text:"Your message has ben sent but is laking some infos",

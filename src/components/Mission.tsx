@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 const Mission = () => {
   return (
-    <div className="flex justify-center items-center flex-col gap-15 min-h-screen">
+    <div className="flex justify-center items-center flex-col gap-15 min-h-screen" id="Mission">
       <motion.h3 
                 initial={{ y: -40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}

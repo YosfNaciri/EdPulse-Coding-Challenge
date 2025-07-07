@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 const Contact = () => {
   return (
-    <div className="flex justify-center items-center flex-col gap-15  md:py-3 min-h-screen">
+    <div className="flex justify-center items-center flex-col gap-15  md:py-3 min-h-screen" id="Contact">
       <motion.h3
               initial={{ y: -40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}

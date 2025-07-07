@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 const Services = () => {
   return (
-    <div className="flex justify-center items-center flex-col gap-15 bg-linear-to-r from-cyan-200 to-blue-50 min-h-screen py-4 md:py-1">
+    <div className="flex justify-center items-center flex-col gap-15 bg-linear-to-r from-cyan-200 to-blue-50 min-h-screen py-4 md:py-1" id="Services">
       <motion.h3
         initial={{ y: -40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
