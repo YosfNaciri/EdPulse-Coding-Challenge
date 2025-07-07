@@ -1,4 +1,3 @@
-import React from "react";
 import Students from "../assets/students.png";
 import { motion } from "motion/react";
 
