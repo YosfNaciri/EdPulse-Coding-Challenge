@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2" 
 
 interface FormData {
   firstName: string;
@@ -24,10 +25,42 @@ const ContactForm: React.FC = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", form);
+ 
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const payload = {
+    firstname: form.firstName,
+    lastname: form.lastName,
+    email: form.email,
+    phone: form.phone,
+    message: form.message,
   };
+
+  try {
+    const res = await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzZTA0MzM1MjY5NTUzNzUxMzUi_pc", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    }).then((res) => res.json());
+
+    console.log(res)
+    
+    if (res.status="success") {
+      Swal.fire({
+        title:"Welcom aboard",
+        text:"Your email has ben sent",
+        icon:"success"
+      })
+    }
+
+  } catch (error) {
+    console.error("Error sending data:", error);
+    alert("There was a problem submitting the form.");
+  }
+};
 
   return (
     <form
@@ -88,7 +121,7 @@ const ContactForm: React.FC = () => {
 
       <button
         type="submit"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
       >
         Get Strated →
       </button>
