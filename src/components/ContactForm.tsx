@@ -18,18 +18,28 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
-  const handleChange = (
+const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+
+ const isComplete = (item) => {
+      const firstname = item.firstname || '';
+      const lastname = item.lastname || '';
+      const email = item.email || '';
+      const message = item.message || '';
+      const phone = item.phone || '';
+  
+      return firstname !== '' && lastname !== '' && email !== '' && message !== '' && phone !== '';
+    };
  
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  const payload = {
+  const data = {
     firstname: form.firstName,
     lastname: form.lastName,
     email: form.email,
@@ -37,23 +47,34 @@ const handleSubmit = async (e: React.FormEvent) => {
     message: form.message,
   };
 
+const isFormComplete = isComplete(data)
+
+let url = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzZTA0MzM1MjY5NTUzNzUxMzUi_pc"
+let swallMsg = {
+        title:"Welcom aboard",
+        text:"Your message has ben sent",
+        icon:"success"
+      }
+if (!isFormComplete) {
+     url = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzZTA0MzM1MjY5NTUzMDUxMzUi_pc" 
+     swallMsg = {
+        title:"Success",
+        text:"Your message has ben sent but is laking some infos",
+        icon:"warning"
+      }
+}
+
   try {
-    const res = await fetch("https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzZTA0MzM1MjY5NTUzNzUxMzUi_pc", {
+    const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(data),
     }).then((res) => res.json());
-
-    console.log(res)
     
     if (res.status="success") {
-      Swal.fire({
-        title:"Welcom aboard",
-        text:"Your email has ben sent",
-        icon:"success"
-      })
+      Swal.fire(swallMsg)
     }
 
   } catch (error) {
@@ -97,7 +118,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         value={form.email}
         onChange={handleChange}
         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200"
-        required
+        
       />
 
       <input
@@ -116,7 +137,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         onChange={handleChange}
         rows={4}
         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-200 resize-none"
-        required
+        
       />
 
       <button
