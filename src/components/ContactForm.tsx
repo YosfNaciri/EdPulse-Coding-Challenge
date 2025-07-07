@@ -20,6 +20,14 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
+  const addDays = (days:number) => {
+  const result = new Date();
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+
+
 const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -49,9 +57,11 @@ const handleSubmit = async (e: React.FormEvent) => {
     email: form.email,
     phone: form.phone,
     message: form.message,
-    date: new Date().toLocaleDateString(),
+    date: addDays(1).toLocaleDateString(),
     time: new Date().toLocaleTimeString(),
   };
+
+console.log(data)
 
 const isFormComplete = isComplete(data)
 
