@@ -1,4 +1,3 @@
-import React from "react";
 import TestimonialCard from "./TestemonialCard";
 import HeroImg from "../assets/Hero-Girl.png";
 
