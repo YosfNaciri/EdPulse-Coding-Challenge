@@ -2,7 +2,8 @@
 
 This project is my submission for the **Edpulse Web Developer Technical Evaluation**.  
 It presents a modern, responsive **landing page** for an English learning platform, with automated form submissions powered by **Pabbly Connect**.
-Once started, the landing page will be available at http://localhost:5173
+
+🌐 https://ed-pulse-coding-challenge-ooo4.vercel.app/
 
 ---
 
@@ -27,15 +28,27 @@ Once started, the landing page will be available at http://localhost:5173
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/edpulse-landing.git
-cd edpulse-landing
-cp .env.example .env
-# Update REACT_APP_PABBLY_WEBHOOK in the .env file
+git clone https://github.com/your-username/EdPulse-Coding-Challenge.git
+cd EdPulse-Coding-Challenge
 npm install
 npm start
 
 ```
 Once started, the landing page will be available at http://localhost:5173
 
+## 🔄 Automation with Pabbly
+
+Form submissions are instantly sent to your Pabbly workflow. Simply update the .env file like this:
+
+```bash
+VITE_APP_COMPLETE_URL=https://your-webhook-url.pabbly.com
+
+```
+Note : You Should creat your own automation workers on pabbly
+
+
+🧑‍💻 Author
+
+Youssef NACIRI
 
 
