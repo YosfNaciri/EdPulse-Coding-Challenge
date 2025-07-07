@@ -39,12 +39,16 @@ const handleChange = (
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
+
+
   const data = {
     firstname: form.firstName,
     lastname: form.lastName,
     email: form.email,
     phone: form.phone,
     message: form.message,
+    date: new Date().addDays(1).toLocaleDateString(),
+    time: new Date().toLocaleTimeString(),
   };
 
 const isFormComplete = isComplete(data)

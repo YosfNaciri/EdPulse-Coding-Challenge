@@ -1,11 +1,16 @@
 import React from "react";
 import ContactForm from "./ContactForm";
-import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
+import { motion } from "motion/react";
 
 const Contact = () => {
   return (
     <div className="flex justify-center items-center flex-col gap-15  md:py-3 min-h-screen">
-      <h3 className="text-2xl text-blue-600 font-bold">Get In Touch</h3>
+      <motion.h3
+              initial={{ y: -40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "linear" }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="text-2xl text-blue-600 font-bold">Get In Touch</motion.h3>
       <h1 className="text-4xl font-bold text-center md:text-start w-96 md:w-auto">
         Join Us Now And start your learning Journey
       </h1>
@@ -14,9 +19,15 @@ const Contact = () => {
       </p>
 
 
-        <div className="px-9 py-4 flex flex-col justify-center gap-10 text-gray-700">
+        <motion.div 
+                initial={{ y: -40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "linear" }}
+                viewport={{ once: true, amount: 0.3 }}
+        
+        className="px-9 py-4 flex flex-col justify-center gap-10 text-gray-700">
           <ContactForm />
-      </div>
+      </motion.div>
     </div>
   );
 };
